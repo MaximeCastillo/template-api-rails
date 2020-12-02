@@ -28,6 +28,8 @@ gem_group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 3.8'
   gem 'factory_bot_rails'
+  gem 'table_print'
+  gem 'dotenv'
 end
 
 gem_group :development do
@@ -88,8 +90,7 @@ generate('rspec:install')
 ## DB migrations
 ## --------------------------------------------------
 
-generate('devise:install')
-generate('migration', 'CreateJwtDenylist jti:string:index expired_at:datetime')
+generate('migration', 'CreateJwtDenylist jti:string:index exp:datetime')
 
 ## --------------------------------------------------
 ## Create databases
